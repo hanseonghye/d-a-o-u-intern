@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="board" namespace="" extends="struts-default">
+
+		<action name="BoardList" class="bbs.board.action.BoardAction"
+			method="executeBoardList">
+			<result name="success">/jsp/board/board_list.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+
+		<action name="BoardInsert" class="bbs.board.action.BoardAction"
+			method="executeBoardInsert">
+			<result name="init">/jsp/board/board_insert.jsp</result>
+			<result type="redirect">BoardList.do</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+
+		<action name="BoardDetail" class="bbs.board.action.BoardAction"
+			method="executeBoardDetail">
+			<result name="success">/jsp/board/board_detail.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+
+		<action name="BoardUpdateForm" class="bbs.board.action.BoardAction"
+			method="executeBoardDetail">
+			<result name="success">/jsp/board/board_update.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+
+		<action name="BoardUpdate" class="bbs.board.action.BoardAction"
+			method="executeBoardUpdate">
+			<result name="success">/jsp/board/modifyprocess.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+		
+		<action name="BoardDelete" class="bbs.board.action.BoardAction"
+			method="executeBoardDelete">
+			<result type="redirect">BoardList.do</result>
+		</action>
+		
+		<action name="MemberInsert" class="bbs.board.action.BoardAction"
+			method="executeMemberInsert">
+		</action>
+		
+		<!-- 과제 추가 -->
+		<action name="ReplyInsert" class="bbs.board.action.BoardAction"
+			method="executeReplyInsert">
+			<result name="success">/jsp/board/board_detail.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>
+
+		<action name="ReplyDelete" class="bbs.board.action.BoardAction"
+			method="executeReplyDelete">
+			<result name="success">/jsp/board/board_detail.jsp</result>
+			<result name="error">/jsp/SysError.jsp</result>
+		</action>	
+	</package>
+</struts>
